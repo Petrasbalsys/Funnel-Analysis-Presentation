@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" type="text/css" href="dist/funnel/main.css">
+    <link rel="stylesheet" type="text/css" href="dist/funnel/theme.css">
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="dist/petro.css">
+    <link rel="stylesheet" href="node_modules/reveal.js-appearance/plugin/appearance/appearance.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-transition="fade" data-background-gradient="linear-gradient(to bottom, #283b95, #191919)">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 95vh;">
+                <img style="flex: 0.8" src="img/undraw_enter_nwx3.svg"/>
+                <h1 style="flex: 0.2">Funnel Analysis</h1>
+            </div>
+        </section>
+
+        <section data-background-image="img/void.svg" data-background-size="contain" data-background-gradient="linear-gradient(to bottom, #283b95, #191919)">
+            <div class="slide-content">
+                <div class="hide-on-mobile-container">
+                    <div style="display: flex; flex-direction: column; height: 95vh;">
+                        <h2 class="animate__fadeIn" data-delay="200" style="flex: 0.1">Purpose of the Presentation</h2>
+                        <div class="big-text" style="flex: 0.3;">
+                            <p class="animate__fadeIn" data-delay="400">In this presentation, we will explore the data from raw web events from the Google merchandise store.</p>
+                            <p class="animate__fadeIn" data-delay="1000">We will:</p>
+                        </div>
+                        <div class="fragment blur-background" data-fragment-index="1" style="flex: 0.6">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <div class="big-text" style="text-align: left;">
+                                    <p class="animate__fadeInDown" data-delay="200" style="margin-left: 40px"><span style="font-weight: bolder;">See</span> the path customers take in the Google Merchandise Store.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">How</span> the 4 distinct funnel categories are defined and why.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">Data</span> is split by key demographics: top 3 countries, devices, and browsers.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">Shows</span> user segments based on engagement levels and new vs. returning status.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">Insights</span> emerge from multi-funnel analysis, identifying issues and suggesting improvements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hide-on-desktop-container">
+                    <div class="r-stack">
+                        <div class="fragment fade-out" data-fragment-index="1" style="grid-template-rows: 20% 80%; height: 95vh;">
+                            <div>
+                                <h1>Purpose of the Presentation</h1>
+                            </div>
+                            <div class="slide-text">
+                                <p class="big-text">In this presentation, we will explore the data from raw web events from the Google merchandise store.</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-in-then-out blur-background" data-fragment-index="1">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <div class="big-text" style="text-align: left;">
+                                    <p class="animate__fadeInDown" data-delay="200" style="margin-left: 40px"><span style="font-weight: bolder;">See</span> the path customers take in the Google Merchandise Store.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">How</span> the 4 distinct funnel categories are defined and why.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">Data</span> is split by key demographics: top 3 countries, devices, and browsers.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">Shows</span> user segments based on engagement levels and new vs. returning status.</p>
+                                    <p class="animate__fadeInDown" data-delay="800" style="margin-left: 40px"><span style="font-weight: bolder;">Insights</span> emerge from multi-funnel analysis, identifying issues and suggesting improvements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(to bottom, #283b95, #191919)">
+            <div class="movable hide-on-desktop" style="top: 60%; left: 2%; z-index: -1; width: 100%;">
+                <img src="img/tree.svg" alt="customer journey pic"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 60%; left: 10%; z-index: -1; width: 35%;">
+                <img src="img/tree.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 55%; left: 85%; width: 8%; z-index: -1;">
+                <img src="img/hiker.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 15%; left: 80%; width: 30%; z-index: -1;">
+                <img src="img/clouds.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <div class="hide-on-mobile-container" style="display:flex; flex-direction: column; height: 95vh;">
+                <h2 style="flex: 0.1">The Customer Journey</h2>
+                <div class="fragment" data-fragment-index="1" style="flex: 0.2">
+                    <p class="animate__fadeInUp big-text">Most of them look like this:</p>
+                    <div class="journey-path blur-background">
+                        <div class="step animate__fadeInUp" data-delay="600">Session Start</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900">View Promotion</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step dead-end animate__fadeInUp" data-delay="900">Dead End</div>
+                    </div>
+                </div>
+                <div class="fragment" data-fragment-index="2" style="flex: 0.2">
+                    <p class="animate__fadeInUp big-text">Or like this:</p>
+                    <div class="journey-path blur-background">
+                        <div class="step animate__fadeInUp" data-delay="600">Session Start</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900">View Promotion</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900">Select Promotion</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step dead-end animate__fadeInUp" data-delay="900">Dead End</div>
+                     </div>
+                </div>
+                <div class="fragment" data-fragment-index="3" style="flex: 0.2">
+                    <p class="animate__fadeInUp big-text">Or even like this:</p>
+                    <div class="journey-path blur-background">
+                        <div class="step animate__fadeInUp" data-delay="600">Session Start</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900">View Promotion</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900">Add to Cart</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900">View Item</div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step dead-end animate__fadeInUp" data-delay="900">Dead End</div>
+                    </div>
+                </div>
+                <div style="flex: 0.2">
+                    <p class="animate__fadeInUp big-text">A typical customer journey looks something like this:</p>
+                    <div class="journey-path blur-background">
+                        <div class="step animate__fadeInUp" data-delay="600"><p>Session<br>Start</p></div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900"><p>View Item</p></div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900"><p>Add to Cart</p></div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900"><p>Begin Checkout</p></div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900"><p>Add Shipping Info</p></div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step animate__fadeInUp" data-delay="900"><p>Add Payment Info</p></div>
+                        <div class="horizontal-arrow animate__fadeInUp" data-delay="600">→</div>
+                        <div class="step success animate__fadeInUp" data-delay="900"><p>Purchase</p></div>
+                    </div>
+                </div style="flex: 0.1">
+                <div class="fragment fade-in" data-fragment-index="4" id="fit-text">
+                    <p class="animate__fadeInDown big-text" data-split="words">It usually takes a few failed tries before a purchase — practice makes checkout, apparently.</p>
+                </div>
+                <div class="movable fragment fade-out" data-fragment-index="4" style="top: 92%; left: 50%; width: 75%; overflow: visible; z-index: -1;">
+                    <img class="responsive-img" src="img/ground.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <h2>The Customer Journey</h2>
+                <div class="r-stack">
+                    <div class="fragment fade-out" data-fragment-index="1" style="width: 80%;">
+                        <div class="vertical-journey-path blur-background">
+                            <p class="animate__fadeIn" data-delay="900">A typical customer journey looks something like this:</p>
+                            <div class="vertical-journey-path" style="width: 60%;">
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Session Start</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">View Item</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Add to Cart</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Begin Checkout</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Add Shipping Info</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Add Payment Info</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step success animate__fadeInDown" data-delay="900">Purchase</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-in-then-out" data-fragment-index="1" style="width: 80%;">
+                        <div class="vertical-journey-path blur-background slide-text" style="grid-template-rows: 20% 80%; ">
+                            <p class="animate__fadeIn">Most of them look like this:</p>
+                            <div class="vertical-journey-path">
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Session Start</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">View Promotion</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step dead-end animate__fadeInDown" data-delay="900">Dead End</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-in-then-out" data-fragment-index="2" style="width: 80%;">
+                        <div class="vertical-journey-path blur-background slide-text" style="grid-template-rows: 1fr 4fr;">
+                            <p class="animate__fadeIn">Or like this:</p>
+                            <div class="vertical-journey-path">
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Session Start</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">View Promotion</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Select Promotion</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step dead-end animate__fadeInDown" data-delay="900">Dead End</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-in-then-out" data-fragment-index="3" style="width: 80%;">
+                        <div class="vertical-journey-path blur-background slide-text" style="grid-template-rows: 1fr 4fr;">
+                            <p class="animate__fadeIn">Or even like this:</p>
+                            <div class="vertical-journey-path">
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Session Start</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">View Promotion</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step animate__fadeInDown" data-delay="900">Add to Cart</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="step animate__fadeInDown" data-delay="900">View Item</div>
+                                <div class="vertical-arrow animate__fadeInDown" data-delay="600">↓</div>
+                                <div class="vertical-step dead-end animate__fadeInDown" data-delay="900">Dead End</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragment fade-in" data-fragment-index="4" style="width: 80%; text-align: left;">
+                        <div style="margin-left: 10px;">
+                            <h1 class="animate__fadeInDown" data-split="words">It usually takes a few failed tries before a purchase</h1>
+                        </div>
+                        <div class="animate__fadeIn" data-delay="600" style="margin-top: 10px;">
+                            <h1 class="animate__fadeInDown" data-split="words">Practice makes checkout, apparently.</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </section>
+
+        <section data-transition="zoom-in fade-out" data-background-image="img/tree-with-branches.svg">
+            <p class="fragment movable fade-out blur-background hide-on-mobile" data-fragment-index="1" style="top: 50%; left: 50%; font-size: 3em;">Let us define the funnels used in the analysis</p>
+            <p class="fragment movable fade-out blur-background hide-on-desktop" data-fragment-index="1" style="top: 50%; left: 50%; font-size: 2em; width: 100%;">Let us define the funnels used in the analysis</p>
+            <div class="hide-on-mobile-container" style="display: flex; flex-direction: column; height: 95vh;">
+                <h2 class="animate__fadeIn" data-delay="200" style="flex: 0.1">Funnel Explanation</h2>
+                <div style="flex: 0.45;">
+                    <div style="display: flex; flex-direction: row; overflow: hidden">
+                        <div class="fragment animate__fadeIn" data-fragment-index="1" style="flex: 0.5; display: flex; flex-direction: column; height: 40vh">
+                            <h3 style="flex: 0.2">Aggregated Funnel</h3>
+                            <p style="flex: 0.2">Events are aggregated into stages,<br>according to the list below:</p>
+                            <table class="table-font blur-background" style="flex: 0.6">
+                                <thead>
+                                    <tr>
+                                        <th>Stage</th>
+                                        <th>Explanation</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Tracked when the user first opens the website.<br>
+                                            Uses session_start. </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest</td>
+                                        <td>Events starting with view, like view_item etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desire</td>
+                                        <td>Events like add_to_cart, select promotion etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Action</td>
+                                        <td>Events like enter_payment_info, purchase etc.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="fragment fade-in animate__fadeIn" data-fragment-index="2" style="flex: 0.5; display: flex; flex-direction: column; height: 40vh;">
+                            <h3 style="flex: 0.2">Typical Funnel</h3>
+                            <p style="flex: 0.2">Follows the idealised typical funnel.</p>
+                            <table class="table-font blur-background" style="flex: 0.6">
+                                <thead>
+                                    <tr>
+                                        <th>Stage</th>
+                                        <th>Explanation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>session_start</td>
+                                        <td>One of the events triggered at the start.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>view_item</td>
+                                        <td>When an item gets viewed.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>add_to_cart</td>
+                                        <td>Item gets added to cart.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>purchase</td>
+                                        <td>Transaction complete!</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 0.45;">
+                    <div style="display: flex; flex-direction: row; overflow: hidden; margin: 0;">
+                        <div class="fragment fade-in animate__fadeIn" data-fragment-index="3" style="flex: 0.5; display: flex; flex-direction: column; height: 40vh;">
+                            <h3 style="flex: 0.2">Promotions Funnel</h3>
+                            <p style="flex: 0.2">Focuses on promotions.</p>
+                            <table class="table-font blur-background" style="flex: 0.6">
+                                <thead>
+                                    <tr>
+                                        <th>Stage</th>
+                                        <th>Explanation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>session_start</td>
+                                        <td>One of the events triggered at the start.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>view_promotion</td>
+                                        <td>Triggered when looked at a promotion.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>select_promotion</td>
+                                        <td>User selects promotion after adding item to the cart.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>purchase</td>
+                                        <td>Transaction complete!</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="fragment fade-in animate__fadeIn" data-fragment-index="4" style="flex: 0.5; display: flex; flex-direction: column;">
+                            <h3 style="flex: 0.2">Action Funnel</h3>
+                            <p style="flex: 0.2">Zooms in on the Action stage.</p>
+                            <table class="table-font blur-background" style="flex: 0.6">
+                                <thead>
+                                    <tr>
+                                        <th>Stage</th>
+                                        <th>Explanation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>begin_checkout</td>
+                                        <td>Start of the checkout stage.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>add_shipping_info</td>
+                                        <td>Triggered after adding shipping info.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>add_payment_info</td>
+                                        <td>Triggered after adding payment info.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>purchase</td>
+                                        <td>Transaction complete!</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <h2>Funnel Explanation</h2>
+                <div class="r-stack">
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="1" style="display: flex; flex-direction: column;">
+                        <h3 style="flex: 0.2">Aggregated Funnel</h3>
+                        <p style="flex: 0.2">Events are aggregated into stages,<br>according to the list below:</p>
+                        <div style="flex: 0.6">
+                            <table class="table-font blur-background">
+                                <thead>
+                                    <tr>
+                                        <th>Stage</th>
+                                        <th>Explanation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Tracked when the user first opens the website.<br>Uses session_start. </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest</td>
+                                        <td>Events starting with view, like view_item etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desire</td>
+                                        <td>Events starting with add_to_cart, select promotion etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Action</td>
+                                        <td>Events like enter_payment_info, purchase etc.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="fragment fade-in-then-out hide-on-desktop animate__fadeIn" data-fragment-index="2">
+                        <h3>Typical Funnel</h3>
+                        <p>Follows the idealised typical funnel</p>
+                        <table class="blur-background">
+                            <thead>
+                                <tr>
+                                    <th>Stage</th>
+                                    <th>Explanation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>session_start</td>
+                                    <td>One of the events triggered at the start.</td>
+                                </tr>
+                                <tr>
+                                    <td>view_item</td>
+                                    <td>When an item gets viewed.</td>
+                                </tr>
+                                <tr>
+                                    <td>add_to_cart</td>
+                                    <td>Item gets added to cart.</td>
+                                </tr>
+                                <tr>
+                                    <td>purchase</td>
+                                    <td>Transaction complete!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="3">
+                        <h3>Promotions Funnel</h3>
+                        <p>Zooms in on the value of promotions.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Stage</th>
+                                    <th>Explanation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>session_start</td>
+                                    <td>One of the events triggered at the start.</td>
+                                </tr>
+                                <tr>
+                                    <td>view_promotion</td>
+                                    <td>Triggered when looked at a promotion.</td>
+                                </tr>
+                                <tr>
+                                    <td>select_promotion</td>
+                                    <td>User selects promotion after adding item to the cart.</td>
+                                </tr>
+                                <tr>
+                                    <td>purchase</td>
+                                    <td>Transaction complete!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="4">
+                        <h3>Action Funnel</h3>
+                        <p>Wanted to take a closer look at the last stage.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Stage</th>
+                                    <th>Explanation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>begin_checkout</td>
+                                    <td>Start of the checkout stage.</td>
+                                </tr>
+                                <tr>
+                                    <td>add_shipping_info</td>
+                                    <td>Triggered after adding shipping info.</td>
+                                </tr>
+                                <tr>
+                                    <td>add_payment_info</td>
+                                    <td>Triggered after adding payment info.</td>
+                                </tr>
+                                <tr>
+                                    <td>purchase</td>
+                                    <td>Transaction complete!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-background-image="img/trees4.svg" data-background-size="cover">
+            <div class="hide-on-mobile-container" style="display: flex; flex-direction: column; height: 95vh;">
+                <h1 class="animate__fadeIn" data-delay="200" style="flex: 0.1">From Big Picture to Fine Details</h1>
+                <div class="blur-background" style="flex: 0.3; align-content: center;">
+                    <div style="display: flex; flex-direction: row; align-items: center;">
+                        <div class="animate__fadeIn" data-delay="400" style="flex: 0.45;">
+                            <p class="big-text" style="text-align: right; margin-right: 10px">With our key funnels defined</p>
+                        </div>
+                        <div style="flex: 0.1;">
+                            <ul style="list-style-type: none;">
+                                <li class="animate__fadeInUp" data-delay="600">Aggregated</li>
+                                <li class="animate__fadeInUp" data-delay="500">Typical</li>
+                                <li class="animate__fadeInUp" data-delay="500">Promotion</li>
+                                <li class="animate__fadeInUp" data-delay="500">Action</li>
+                            </ul>
+                        </div>
+                        <div class="animate__fadeIn" data-delay="400" style="flex: 0.45;">
+                            <p class="big-text" style="text-align: left; margin-left: 10px">let us analyze user flow through each.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-text slide-content" style="flex: 0.6">
+                    <div style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 100%;">
+                        <div class="fragment blur-background animate__fadeIn" data-fragment-index="1" style="flex: 0.5; display: flex; flex-direction: column;">
+                            <h3 style="flex: 0.1;">Overall Performance</h3>
+                            <p style="flex: 0.4;">The next slide with funnels will examine the data from the entire dataset.</p>
+                            <p style="flex: 0.5;">This establishes a baseline understanding of conversion rates and identifies the most significant drop-offs across all users.</p>
+                        </div>
+                        <div class="fragment blur-background animate__fadeIn" data-fragment-index="2" style="flex: 0.5; display: flex; flex-direction: column;">
+                            <h3 style="flex: 0.1;">Segmented Insights</h3>
+                            <p style="flex: 0.4;">Other funnel slides segment the data for each funnel based on top:</p>
+                            <div style="flex: 0.5; display: grid; grid-template-columns: 1fr 1fr 1fr;">
+                                <p class="animate__fadeInUp" data-delay="1500">Countries</p>
+                                <p class="animate__fadeInUp" data-delay="600">Device</p>
+                                <p class="animate__fadeInUp" data-delay="600">Browser</p>
+                                <p class="animate__fadeInUp" data-delay="600">User Engagement Level</p>
+                                <p class="animate__fadeInUp" data-delay="600">User Type</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container" style="display: flex !important; flex-direction: column; height: 95vh; align-content: top;">
+                <h1 class="hide-on-desktop" style="flex: 0.1">From Big Picture to Fine Details</h1>
+                <div class="r-stack" style="flex: 0.9">
+                    <div class="fragment fade-out slide-text" data-fragment-index="1" style="display: flex !important; flex-direction: column;">          
+                        <p class="big-text" style="flex: 0.9">With our key funnels defined:</p>
+                        <div style="display: flex !important; flex-direction: row; align-items: center;">
+                            <div style="flex: 0.5;">
+                                <p>Aggregated</p>
+                            </div>
+                            <div style="flex: 0.5;">
+                                <p>Typical</p>
+                            </div>
+                        </div>
+                        <div style="display: flex !important; flex-direction: row; align-items: center;">
+                            <div style="flex: 0.5;">
+                                <p>Promotion</p>
+                            </div>
+                            <div style="flex: 0.5;">
+                                <p>Action</p>
+                            </div>
+                        </div>
+                        <p class="big-text">let us analyze user flow through each.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out blur-background animate__fadeIn slide-text" data-fragment-index="1">
+                        <h3>Overall Performance</h3>
+                        <p>First, we'll examine funnels using data from the whole dataset.</p>
+                        <p>This establishes a baseline understanding of conversion rates and identifies the most significant drop-offs across all users.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out blur-background animate__fadeIn slide-text" data-fragment-index="2">
+                        <h3>Segmented Insights</h3>
+                        <p>Other funnel slides segment the data for each funnel based on top:</p>
+                        <div>
+                            <p class="animate__fadeInUp" data-delay="1500">Countries</p>
+                            <p class="animate__fadeInUp" data-delay="600">Device</p>
+                            <p class="animate__fadeInUp" data-delay="600">Browser</p>
+                            <p class="animate__fadeInUp" data-delay="600">User Engagement Level</p>
+                            <p class="animate__fadeInUp" data-delay="600">User Type</p>
+                        </div>
+                    </div>                                                           
+                </div>
+            </div>          
+        </section>
+
+        <section>
+            <section class="funnel-test">
+                <h2>Aggregated Funnel</h2>
+                <div id="funnel-aggregated" 
+                    data-data-source="aggregated-funnel"
+                    data-use-json="false">
+                </div>
+                <div class="r-stack">
+                    <div class="fragment blur-background movable hide-on-mobile" data-fragment-index="2" style="top: 40%; left: 10%; z-index: 10; width: 15%;">
+                        <p class="big-text">
+                            <span class="animate__backInDown"><span class="animate__shakeY" data-delay="1500">Use ↑↓ to navigate funnel slides!</span></span>
+                        </p>
+                    </div>
+                    <div class="fragment blur-background movable hide-on-mobile" data-fragment-index="1" style="top: 70%; left: 48%; z-index: 10;">
+                        <p class="animate__fadeIn" style="font-size: 50px;">The biggest drop happens<br>at the Interest stage!</p>
+                    </div>
+                    <div class="fragment blur-background movable hide-on-desktop slide-text" data-fragment-index="1" style="top: 70%; left: 55%; z-index: 10;">
+                        <p>The biggest drop happens<br>at the Interest stage!</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div style="display: flex; flex-direction: column; height: 95vh;">
+                    <h2 style="flex: 0.1;">Typical Funnel</h2>
+                    <div style="flex: 0.8;">
+                        <div id="funnel-typical"
+                             data-data-source="typical-funnel"
+                             data-use-json="false">
+                        </div>
+                    </div>
+                </div>
+                <div class="r-stack">
+                    <div class="overlay-text fragment blur-background movable hide-on-mobile" data-fragment-index="1" style="top: 37%; left: 50%; z-index: 10;">
+                        <p class="animate__fadeIn" style="font-size: 42px;">Here the drop happens earlier,<br>at the session_start stage.</p>
+                    </div>
+                    <div class="overlay-text fragment blur-background movable hide-on-desktop slide-text" data-fragment-index="1" style="top: 60%; left: 65%; z-index: 10;">
+                        <p>Here the drop happens earlier,<br>at the session_start stage.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Promotions Funnel</h2>
+                <div id="funnel-promotions" 
+                     data-data-source="promotions-funnel"
+                     data-use-json="false">
+                </div>
+                <div class="r-stack">
+                    <div class="fragment blur-background movable hide-on-mobile" data-fragment-index="1" style="top: 70%; left: 47%; z-index: 10;">
+                        <p class="animate__fadeIn" style="font-size: 42px;">Not many people end up following through with the promotion,<br>but it does increase site activity significantly.</p>
+                    </div>
+                    <div class="fragment blur-background movable hide-on-desktop slide-text" data-fragment-index="1" style="top: 55%; left: 62%; z-index: 10;">
+                        <p>Not many people end up following through with the promotion,<br>but it does increase site activity significantly.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Action Funnel</h2>
+                <div id="funnel-action" 
+                     data-data-source="actions-funnel"
+                     data-use-json="false">
+                </div>
+                <div class="r-stack">
+                    <div class="fragment blur-background movable hide-on-mobile animate__fadeIn slide-text" data-fragment-index="1" style="top: 70%; left: 50%; z-index: 10;">
+                        <p class="big-text">We lose half the customers<br>by the time we reach the purchase stage!</p>
+                    </div>
+                    <div class="fragment blur-background movable hide-on-desktop animate__fadeIn slide-text" data-fragment-index="1" style="top: 46%; left: 60%; z-index: 10;">
+                        <p>We lose half the customers<br>by the time we reach the purchase stage!</p>
+                    </div>
+                </div>
+            </section>
+            <div class="movable hide-on-mobile" style="top: 25%; left: 10%; width: 35%; z-index: -1; overflow:visible";>
+                <img class="animate__bounceInUp" src="img/tree2.svg" alt="customer journey pic" style="rotate: 180deg; width: 50%; height: auto;"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 80%; left: 90%; width: 35%; z-index: 20;">
+                <img class="animate__bounceInUp" src="img/trees.svg" alt="customer journey pic" style="width: 75%; height: auto;"></img>
+            </div>
+        </section>
+
+        <section>
+            <div style="display: flex; flex-direction: column; height: 95vh;">
+                <h2 style="flex: 0.05">Events by Country</h2>
+                <div style="flex: 0.95;">
+                    <canvas data-chart="bar">
+                    <!--
+                    {
+                        "data": {
+                            "labels": [["United","States"], "India", "Canada", "Other"],
+                            "datasets": [
+                                {
+                                "data": [246831, 52465, 42278, 219809],
+                                "label": "Events",
+                                "backgroundColor": [
+                                    "rgba(1, 99, 145, 0.6)",
+                                    "rgba(169, 169, 169, 0.26)",
+                                    "rgba(169, 169, 169, 0.1)",
+                                    "rgba(226, 74, 56, 0.6)"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                    -->
+                    </canvas>
+                </div>
+            </div>
+            <div class="hide-on-mobile-container">
+                <div class="fragment movable center-text slide-text animate__fadeIn" data-fragment-index="1" style="top: 22%; left: 50%; width: 50%; height: 20%;">
+                    <p>Events from United States dominate.</p>
+                    <p>Possible VPN and bot events.</p>
+                </div>
+                <div class="fragment movable center-text slide-text animate__fadeIn" data-fragment-index="2" style="top: 50%; left: 50%; width: 50%; height: 30%;">
+                    <p class="big-text">By looking at the events from top 3 countries only, we are ignoring 40% of the data!</p>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <div class="fragment movable center-text" data-fragment-index="1" style="top: 25%; left: 50%; width: 40%; height: 25%;">
+                    <p>Events from United States dominate.</p>
+                    <p>Possible VPN and bot events.</p>
+                </div>
+                <div class="fragment movable" data-fragment-index="2" style="top: 58%; left: 50%; width: 40%; height: 25%;">
+                    <p>By looking at the events from top 3 countries only, we are ignoring 40% of the data!</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="movable hide-on-mobile" style="top: 65%; left: 42%; width: 100%; z-index: -1; overflow:visible;">
+                <img class="animate__zoomIn" src="img/weird-tree-ground.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 68%; left: 91%; width: 5%; overflow:visible; z-index: -1;";>
+                <img class="animate__bounceInUp" src="img/short-tree.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <section class="funnel-test">
+                <h2>Aggregated Funnel</h2>
+                <div id="funnel-countries-aggregated" 
+                     data-data-source="countries-aggregated-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Typical Funnel</h2>
+                <div id="funnel-countries-typical" 
+                     data-data-source="countries-typical-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Promotions Funnel</h2>
+                <div id="funnel-countries-promotions" 
+                     data-data-source="countries-promotions-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Action Funnel</h2>
+                <div id="funnel-countries-action" 
+                     data-data-source="countries-actions-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <div style="display: flex; flex-direction: column; height: 95vh;">
+                <h2 style="flex: 0.05">Events by Device</h2>
+                <div style="flex: 0.95;">
+                    <canvas id="device" data-chart="bar">
+                    <!--
+                    {
+                        "data": {
+                            "labels": ["Desktop", "Mobile", "Tablet"],
+                            "datasets": [
+                                {
+                                "data": [325597, 223299, 12492],
+                                "label": "Events by Device",
+                                "backgroundColor": [
+                                    "rgba(1, 99, 145, 0.6)",
+                                    "rgba(254, 185, 41, 0.8)",
+                                    "rgba(226, 74, 56, 0.6)"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                    -->
+                    </canvas>
+                </div>
+            </div>
+            <div class="hide-on-mobile-container">
+                <div class="overlay-text fragment movable center-text slide-text big-text animate__fadeIn" style="top: 25%; left: 65%; width: 60%; height: 20%;" data-fragment-index="1">
+                    <p> If the same person uses multiple devices, we register them as different users!</p>
+                </div>
+                <div class="overlay-text fragment movable center-text slide-text big-text animate__fadeIn" style="top: 58%; left: 78%; width: 30%; height: 35%;" data-fragment-index="2">
+                    <p>Mobile users keep growing, projected to surpass half in the future.</p>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <div class="overlay-text fragment movable center-text" style="top: 25%; left: 65%; width: 60%; height: 20%;" data-fragment-index="1">
+                    <p> If the same person uses multiple devices, we register them as different users!</p>
+                </div>
+                <div class="overlay-text fragment movable center-text" style="top: 58%; left: 78%; width: 30%; height: 35%;" data-fragment-index="2">
+                    <p>Mobile users keep growing, projected to surpass half in the future.</p>
+                </div>
+            </div>
+        </section>
+
+        <section data-background-image="img/green-full.svg" data-background-size="cover" data-background-position="center" data-background-repeat="no-repeat" >
+            <section class="funnel-test">
+                <h2 class="blur-background">Aggregated Funnel</h2>
+                <div id="funnel-device-aggregated" 
+                     data-data-source="device-aggregated-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2 class="blur-background">Typical Funnel</h2>
+                <div id="funnel-device-typical" 
+                     data-data-source="device-typical-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2 class="blur-background">Promotions Funnel</h2>
+                <div id="funnel-device-promotions" 
+                     data-data-source="device-promotions-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2 class="blur-background">Action Funnel</h2>
+                <div id="funnel-device-action" 
+                     data-data-source="device-action-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <div style="display: flex; flex-direction: column; height: 95vh;">
+                <h2 style="flex: 0.05">Events by Browser</h2>
+                <div style="flex: 0.95;">
+                    <canvas data-chart="bar">
+                    <!--
+                    {
+                        "data": {
+                            "labels": ["Chrome", "Safari", "Other"],
+                            "datasets": [
+                                {
+                                "data": [382267, 134443, 44678],
+                                "label": "Events by Browser",
+                                "backgroundColor": [
+                                    "rgba(1, 99, 145, 0.6)",
+                                    "rgba(254, 185, 41, 0.8)",
+                                    "rgba(226, 74, 56, 0.6)"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                    -->
+                    </canvas>
+                </div>
+            </div>
+            <div class="hide-on-mobile-container">
+                <div class="overlay-text fragment movable center-text slide-text animate__fadeIn" style="top: 50%; left: 65%; width: 60%; height: 20%;" data-fragment-index="1">
+                    <p class="big-text">Chrome dominates, accounting for about 2/3 of the events.</p>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <div class="overlay-text fragment movable center-text" style="top: 50%; left: 65%; width: 60%; height: 20%;" data-fragment-index="1">
+                    <p>Chrome dominates, accounting for about 2/3 of the events.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="movable hide-on-mobile" style="top: 90%; left: 0%; width: 45%; z-index: -1; overflow:visible";>
+                <img class="animate__bounceInUp" src="img/car.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 15%; left: 12%; width: 20%; z-index: -1; overflow:visible";>
+                <img src="img/clouds.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 51%; left: 90%; width: 45%; z-index: -1; overflow:visible";>
+                <img class="animate__bounceInUp" src="img/tree3.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <section class="funnel-test">
+                <h2>Aggregated Funnel</h2>
+                <div id="funnel-browser-aggregated" 
+                     data-data-source="browser-aggregated-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Typical Funnel</h2>
+                <div id="funnel-browser-typical" 
+                     data-data-source="browser-typical"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Promotions Funnel</h2>
+                <div id="funnel-browser-promotions" 
+                     data-data-source="browser-promotions-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Action Funnel</h2>
+                <div id="funnel-browser-action" 
+                     data-data-source="browser-actions-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <div style="display: flex; flex-direction: column; height: 95vh;">
+                <h2 style="flex: 0.05">Events by Engagement</h2>
+                <div style="flex: 0.95">
+                    <canvas data-chart="bar">
+                    <!--
+                    {
+                        "data": {
+                            "labels": [["Low","Engagement"], ["Medium","Engagement"], ["High","Engagement"]],
+                            "datasets": [
+                                {
+                                "data": [217911, 73275, 270202],
+                                "label": "Events by Engagement",
+                                "backgroundColor": [
+                                    "rgba(1, 99, 145, 0.6)",
+                                    "rgba(254, 185, 41, 0.8)",
+                                    "rgba(226, 74, 56, 0.6)"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                    -->
+                    </canvas>
+                </div>
+            </div>
+            <div class="hide-on-mobile-container">
+                <div class="overlay-text fragment movable center-text slide-text big-text" style="top: 48%; left: 50%; width: 38%; height: 50%; text-align: left;" data-fragment-index="1">
+                    <p class="animate__fadeIn" style="padding-left: 10px;"><span style="font-weight: bold;">Low engagement:</span> session duration under a minute.</p>
+                    <p class="animate__fadeIn" data-delay="400" style="padding-left: 10px;"><span style="font-weight: bold;">Medium engagement:</span> session duration from 1 to 5 minutes.</p>
+                    <p class="animate__fadeIn" data-delay="400" style="padding-left: 10px;"><span style="font-weight: bold;">High engagement:</span> session duration over 5 minutes.</p>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <div class="overlay-text fragment movable" style="top: 19%; left: 37%; width: 60%; height: 25%; text-align: left;" data-fragment-index="1">
+                    <p style="padding-left: 10px;"><span style="font-weight: bold;">Low engagement:</span> session duration under a minute.</p>
+                    <p style="padding-left: 10px;"><span style="font-weight: bold;">Medium engagement:</span> session duration from 1 to 5 minutes.</p>
+                </div>
+                <div class="overlay-text fragment movable" style="top: 45%; left: 50%; width: 30%; height: 21%; text-align: left;" data-fragment-index="1">
+                    <p style="padding-left: 10px;"><span style="font-weight: bold;">High engagement:</span> session duration over 5 minutes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="movable hide-on-mobile" style="top: 64%; left: 10%; width: 20%; z-index: -1; overflow:visible";>
+                <img class="animate__bounceInUp" src="img/flower.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <div class="movable hide-on-mobile" style="top: 64%; left: 96%; width: 30%; z-index: -1; overflow:visible";>
+                <img src="img/house.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+            </div>
+            <section class="funnel-test">
+                <h2>Aggregated Funnel</h2>
+                <div id="funnel-engagement-aggregated" 
+                     data-data-source="engagement-aggregated-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Typical Funnel</h2>
+                <div id="funnel-engagement-typical" 
+                     data-data-source="engagement-typical-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Promotions Funnel</h2>
+                <div id="funnel-engagement-promotions" 
+                     data-data-source="engagement-promotions-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Action Funnel</h2>
+                <div id="funnel-engagement-action" 
+                     data-data-source="engagement-action-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <div style="display: flex; flex-direction: column; height: 95vh;">
+                <h2 style="flex: 0.05">New vs Returning Users</h2>
+                <div style="flex: 0.95">
+                    <canvas id="newVsReturningUsers" data-chart="bar">
+                    <!--
+                    {
+                        "data": {
+                            "labels": ["New Users", "Returning Users"],
+                            "datasets": [
+                                {
+                                "data": [515887, 45501],
+                                "label": "Events by User Type",
+                                "backgroundColor": [
+                                    "rgba(1, 99, 145, 0.6)",
+                                    "rgba(254, 185, 41, 0.8)",
+                                    "rgba(226, 74, 56, 0.6)"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                    -->
+                    </canvas>
+                </div>
+            </div>
+            <div class="hide-on-mobile-container">
+                <div class="fragment movable slide-text center-text animate__fadeIn" data-fragment-index="1" style="top: 48%; left: 75%; width: 38%; height: 50%;">
+                    <p class="big-text animate__fadeIn">Based on the first_visit event — not perfect, but a useful proxy for new vs. returning trends.</p>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <div class="fragment movable" data-fragment-index="1" style="top: 50%; left: 70%; width: 45%; height: 25%;">
+                    <p style="padding-left: 10px;">Based on the first_visit event — not perfect, but a useful proxy for new vs. returning trends.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="movable hide-on-mobile" style="top: 65%; left: 5%; width: 25%; z-index: -1; overflow:visible";>
+            <img src="img/person1.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+        </div>
+        <div class="movable hide-on-mobile" style="top: 65%; left: 85%; width: 25%; z-index: -1; overflow:visible";>
+            <img src="img/person2.svg" alt="customer journey pic" style="width: 100%; height: auto;"></img>
+        </div>
+            <section class="funnel-test">
+                <h2>Aggregated Funnel</h2>
+                <div id="funnel-new-vs-returning-users-aggregated" 
+                     data-data-source="new-vs-returning-users-aggregated-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Typical Funnel</h2>
+                <div id="funnel-new-vs-returning-users-typical" 
+                     data-data-source="new-vs-returning-users-typical-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Promotions Funnel</h2>
+                <div id="funnel-new-vs-returning-users-promotions" 
+                     data-data-source="new-vs-returning-users-promotions-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+            <section class="funnel-test">
+                <h2>Action Funnel</h2>
+                <div id="funnel-new-vs-returning-users-action" 
+                     data-data-source="new-vs-returning-users-action-funnel"
+                     data-use-json="false">
+                </div>
+            </section>
+        </section>
+        
+        <section data-background-image="img/space.svg" data-background-size="contain">
+            <div class="hide-on-mobile-container" style="display: flex; flex-direction: column; height: 95vh;">
+                <h3 style="flex: 0.05">Key Findings & Actionable Insights</h3>
+                <div style="flex: 0.45; align-content: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h3 style="flex: 0.05">Key Findings</h3>
+                        <div style="flex: 0.95">
+                            <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                                <div class="animate__fadeIn" data-delay="200" style="flex: 0.2">
+                                    <h4>Friction Points</h4>
+                                    <p class="smaller">The most significant user drop-offs occur early in the journey and critically during checkout at the 'Add Payment Info' step.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="1" style="flex: 0.2">
+                                    <h4>Promotion Impact</h4>
+                                    <p class="smaller">While promotions drive initial interest (view_promotion), they currently show low conversion to purchase.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="2" style="flex: 0.2">
+                                    <h4>User Behavior</h4>
+                                    <p class="smaller">Highly engaged users and returning users demonstrate higher conversion rates. The path to purchase often involves multiple sessions.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="3" style="flex: 0.2">
+                                    <h4>Segmentation</h4>
+                                    <p class="smaller">Funnel shapes and drop-off points remain largely consistent across different splits, suggesting core usability issues rather than segment-specific problems.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="4"style="flex: 0.2">
+                                    <h4>Data Context</h4>
+                                    <p class="smaller">Pseudo_ID tracking limits true cross-device user identification. Focusing only on the Top 3 countries excludes a substantial portion (42%) of user sessions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 0.45; align-content: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <h3 class="fragment fade-in animate__fadeIn" data-fragment-index="5" style="flex: 0.05">Actionable Insights</h3>
+                        <div style="flex: 0.95">
+                            <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="5" style="flex: 0.2">
+                                    <h4>Optimize Early Engagement</h4>
+                                    <p class="smaller big-size">Focus on improving landing pages, product discovery, and the transition from view_item to add_to_cart to combat the initial drop-off.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="6" style="flex: 0.2">
+                                    <h4>Streamline Checkout</h4>
+                                    <p class="smaller">Prioritize investigating and simplifying the 'Add Payment Info' stage. Consider usability testing, reviewing payment options, and ensuring clarity around costs.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="7" style="flex: 0.2">
+                                    <h4>Re-evaluate Promotions</h4>
+                                    <p class="smaller">Analyze the ROI of current promotions. Test different offers or placements to improve their effectiveness in driving purchases, not just views.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="8" style="flex: 0.2">
+                                    <h4>Nurture High-Value Users</h4>
+                                    <p class="smaller">Develop strategies to encourage user engagement and retain returning visitors, as they are more likely to convert.</p>
+                                </div>
+                                <div class="fragment blur-background animate__fadeIn" data-fragment-index="9" style="flex: 0.2">
+                                    <h4>Investigate US Traffic</h4>
+                                    <p class="smaller">Analyze traffic sources for the US segment to understand the high volume and identify potential non-genuine traffic.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hide-on-desktop-container">
+                <div class="r-stack">
+                    <div class="fragment fade-out slide-text" data-fragment-index="1"
+                        style="height: 100%;">
+                        <h1>Key Findings</h1>
+                        <h3>Friction Points</h3>
+                        <p>The most significant user drop-offs occur early in the journey and critically during checkout at the 'Add Payment Info' step.</p>
+                    </div>
+                    <div class="fragment current-visible" data-fragment-index="1"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h1 class="smaller blur-background">Key Findings</h1>
+                        <h4>Promotion Impact</h4>
+                        <p class="table-slide">While promotions drive initial interest (view_promotion), they currently show low conversion to purchase.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="2"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h1>Key Findings</h1>
+                        <h4>User Behavior</h4>
+                        <p class="table-slide">Highly engaged users and returning users demonstrate higher conversion rates. The path to purchase often involves multiple sessions.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="3"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h1>Key Findings</h1>
+                        <h4>Segmentation</h4>
+                        <p class="table-slide">Funnel shapes and drop-off points remain largely consistent across different splits, suggesting core usability issues rather than segment-specific problems.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="4"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h1>Key Findings</h1>
+                        <h4>Data Context</h4>
+                        <p class="table-slide">Pseudo_ID tracking limits true cross-device user identification. Focusing only on the Top 3 countries excludes a substantial portion (42%) of user sessions</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="5"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h3>Actionable Insights</h3>
+                        <h4>Optimize Early Engagement</h4>
+                        <p class="table-slide">Focus on improving landing pages, product discovery, and the transition from view_item to add_to_cart to combat the initial drop-off.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="6"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h3>Actionable Insights</h3>
+                        <h4>Streamline Checkout</h4>
+                        <p class="table-slide">Prioritize investigating and simplifying the 'Add Payment Info' stage. Consider usability testing, reviewing payment options, and ensuring clarity around costs.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="7"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h3>Actionable Insights</h3>
+                        <h4>Re-evaluate Promotions</h4>
+                        <p class="table-slide">Analyze the ROI of current promotions. Test different offers or placements to improve their effectiveness in driving purchases, not just views.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="8"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h3>Actionable Insights</h3>
+                        <h4>Nurture High-Value Users</h4>
+                        <p class="table-slide">Develop strategies to encourage user engagement and retain returning visitors, as they are more likely to convert.</p>
+                    </div>
+                    <div class="fragment fade-in-then-out animate__fadeIn" data-fragment-index="9"
+                        style="height: 100%; margin: 5px; padding: 15px;">
+                        <h3>Actionable Insights</h3>
+                        <h4>Investigate US Traffic</h4>
+                        <p class="table-slide">Analyze traffic sources for the US segment to understand the high volume and identify potential non-genuine traffic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section data-background-gradient="linear-gradient(to bottom, #283b95, #191919)" data-background-image="img/friendship.svg" data-background-size="contain" data-background-position="bottom" data-background-repeat="no-repeat">
+            <div class="slide-text" style="display: flex; flex-direction: column; align-items: center; justify-content: top; height: 95vh; text-align: center; ">
+                <h1 class="animate__fadeInUp" style="flex: 0.2">Thank You</h1>
+                <p class="animate__fadeIn big-text" data-delay="900" style="flex: 0.2">Questions?</p>
+                <div class="r-hstack fragment animate__fadeIn" style="flex: 0.1">
+                    <div style="width: 13.5%; margin-right: 50%;">
+                        <a href="https://github.com/TuringCollegeSubmissions/pebalsy-MAT2.2.2" target="_blank" rel="noopener noreferrer">
+                            <img src="img/github-icon.svg" alt="GitHub" />
+                        </a>
+                    </div>
+                    <div style="width: 10%; align-items: center; justify-content: center;">
+                        <a href="https://docs.google.com/spreadsheets/d/1A__VMAXT2p562x54N68QoUNEVFMtNZ5YvVXLXkcXdLA/edit?gid=1550319631#gid=1550319631" target="_blank" rel="noopener noreferrer">
+                            <img src="img/google-sheets-icon.svg" alt="Google Sheets" style="width: 100%; height: auto;"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="node_modules/reveal.js-appearance/plugin/appearance/appearance.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="js/chart-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+<script src="js/funnel-graph-patched.js"></script>
+<script src="plugin/funnel-charts/plugin.js"></script>
+
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: "100%",
+        height: "100%",
+        margin: 0,
+        //center: true, // Ensures vertical centering
+        disableLayout: false,
+        scrollProgress: true,
+        responsive: true,
+        appearance: { 
+            hideagain: true,
+            appearevent: 'slidetransitionend'
+        },
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [Appearance, RevealMarkdown, RevealHighlight, RevealNotes, RevealChart, RevealFunnelCharts], 
+    });
+</script>
+</body>
+</html>

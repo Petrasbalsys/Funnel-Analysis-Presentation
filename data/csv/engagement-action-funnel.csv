@@ -1,0 +1,5 @@
+Funnel Stage,Low Events,Medium Events,High Events
+Begin Checkout,6,1427,9283
+Add Shipping Info,6,1427,9282
+Add Payment Info,1,140,6412
+Purchase,0,61,4733

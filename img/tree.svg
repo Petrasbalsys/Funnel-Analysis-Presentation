@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="390.0965"
+   height="742.5517"
+   viewBox="0 0 390.09649 742.55169"
+   role="img"
+   artist="Katerina Limpitsouni"
+   source="https://undraw.co/"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="tree.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.46781908"
+     inkscape:cx="189.1757"
+     inkscape:cy="274.67884"
+     inkscape:window-width="1464"
+     inkscape:window-height="968"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <g
+     id="g1"
+     transform="translate(-69.224521)">
+    <circle
+       id="Ellipse_423"
+       data-name="Ellipse 423"
+       cx="269.78201"
+       cy="189.539"
+       r="189.539"
+       fill="#016391" />
+    <path
+       id="Path_2322-2905"
+       data-name="Path 2322"
+       d="m 129.833,62.942 c -41.149,96.26 3.523,207.655 99.784,248.807 a 189.554,189.554 0 0 0 216.045,-48.2 c -41.147,96.263 -152.54,140.944 -248.8,99.8 -96.26,-41.144 -140.944,-152.54 -99.8,-248.8 a 189.556,189.556 0 0 1 32.772,-51.6 z"
+       opacity="0.2"
+       style="isolation:isolate" />
+    <path
+       id="Path_2323-2906"
+       data-name="Path 2323"
+       d="m 280.039,717.56 -19.36,-5.43 0.04,-2.08 5.8,-315.28 0.29,-15.72 0.01,-0.46 1.01,-55.08 1.47,-79.84 v -0.01 l 1,-54.12 h 0.53 l 1.02,58.63 1.33,76.31 0.95,54.15 v 0.4 l 0.04,2.23 v 0.01 l 1.84,105.55 0.19,10.49 3.8,218.15 z"
+       fill="#090814" />
+    <rect
+       id="Rectangle_627"
+       data-name="Rectangle 627"
+       width="35.408001"
+       height="9.3730001"
+       transform="rotate(-27.766)"
+       fill="#090814"
+       x="9.6506672"
+       y="559.34753" />
+  </g>
+  <rect
+     id="Rectangle_629"
+     data-name="Rectangle 629"
+     width="89.372002"
+     height="2"
+     fill="#cbcbcb"
+     x="0"
+     y="740.5517" />
+</svg>

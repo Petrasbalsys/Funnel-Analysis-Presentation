@@ -1,0 +1,180 @@
+[id^="funnel-"],
+[id$="-funnel"] {
+  width: 100%;
+  max-width: 60vw;
+  height: 65vh;
+  max-height: 65vh;
+  margin: 0 auto;
+  position: relative;
+}
+
+.reveal .slides section.funnel-test {
+  padding: 0.5em;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.reveal .slides {
+  height: 100%;
+}
+
+.journey-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  margin: 0.2em auto;
+}
+
+.journey-path .step {
+  padding: clamp(0.01em,0.2em,0.5em);
+  border: 0.1em solid #a9a9a9;
+  border-radius: 0.5rem;
+  margin: 0.1em;
+}
+
+.reveal .vertical-step {
+  padding: 5px;
+  border: 0.1em solid #ffffff;
+  border-radius: 1em;
+}
+
+.reveal .vertical-journey-path {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin: 0.2em auto;
+}
+
+.dead-end {
+  background-color: #ff6347;
+}
+
+.success {
+  background-color: #4caf50;
+}
+
+.path-line {
+  display: inline-block;
+  width: clamp(1vw, 4vw, 8vw);
+  height: 0.1em;
+  background-color: #a9a9a9;
+}
+
+.vertical-arrow {
+  align-items: center;
+  justify-content: center; 
+  font-weight: bold; 
+  font-size: 30px; 
+  line-height: 0.8em;
+}
+
+.movable {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.smaller {
+  margin: 0;
+  font-size: 18px;
+}
+
+.blur-background {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+
+
+  [id^="funnel-"] {
+    height: 70vh;
+    max-width: 50%;
+    overflow: hidden;
+  }
+}
+
+/* Different sizes based on screen width */
+@media (max-width: 768px) {
+  .responsive-img {
+    width: 80vw;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+}
+/* Hide elements on desktop devices */
+.hide-on-desktop {
+  display: none;
+}
+
+/* Show these elements only on mobile */
+@media (max-width: 768px) {
+  .hide-on-desktop {
+    display: block; /* or flex, grid, etc. as needed */
+  }
+}
+
+.table-font {
+  font-size: 0.6em;
+}
+
+@media (min-height: 1000px) {
+
+  .table-font {
+    font-size: 0.8em;
+  }
+  .smaller {
+    font-size: 1.15em;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile-container,
+  .hide-on-mobile-container * {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-on-desktop-container,
+  .hide-on-desktop-container * {
+    display: grid !important;
+  }
+}
+
+.hide-on-desktop-container {
+  display: none;
+}
+
+.center-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.slide-text {
+  font-size: 32px;
+}
+
+.big-text {
+  font-size: 1.25em;
+}
+
+@media (min-height: 1000px) {
+  .big-text {
+    font-size: 2em;
+  }
+}
+
+.left-align {
+  text-align: left;
+  padding-left: 10px;
+}

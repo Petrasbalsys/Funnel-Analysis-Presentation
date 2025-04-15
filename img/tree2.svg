@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="243.22749"
+   height="624"
+   viewBox="0 0 243.22749 624.00003"
+   role="img"
+   artist="Katerina Limpitsouni"
+   source="https://undraw.co/"
+   version="1.1"
+   id="svg25"
+   sodipodi:docname="tree2.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs25" />
+  <sodipodi:namedview
+     id="namedview25"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.97572509"
+     inkscape:cx="357.17028"
+     inkscape:cy="380.23005"
+     inkscape:window-width="1728"
+     inkscape:window-height="1051"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg25" />
+  <g
+     id="g25"
+     transform="translate(-568.12187)">
+    <path
+       d="m 1005.6747,364.5052 c 0,-67.16541 -54.44835,-226.54562 -121.61377,-226.54562 -67.16542,0 -121.61373,159.38021 -121.61373,226.54562 a 121.61375,121.61375 0 1 0 243.2275,0 z"
+       transform="translate(-194.32533,-137.95958)"
+       fill="#016391"
+       id="path3" />
+    <path
+       d="m 884.061,734.37755 a 1,1 0 0 0 1,-1 V 240.09337 a 1,1 0 0 0 -2,0 v 493.28418 a 1,1 0 0 0 1,1 z"
+       fill="#3f3d56"
+       id="path4"
+       transform="translate(-194.32533,-137.95958)" />
+    <path
+       d="m 884.061,321.03917 a 0.9968,0.9968 0 0 0 0.70716,-0.293 l 48.13452,-48.13427 a 1,1 0 0 0 -1.41431,-1.41407 l -48.13452,48.13428 a 1,1 0 0 0 0.70715,1.707 z"
+       transform="translate(-194.32533,-137.95958)"
+       fill="#3f3d56"
+       id="path5" />
+    <path
+       d="m 884.061,404.36925 a 1,1 0 0 0 0.70716,-1.707 l -80.61,-80.61035 a 1,1 0 0 0 -1.4143,1.41406 l 80.61,80.61035 a 0.99705,0.99705 0 0 0 0.70714,0.29294 z"
+       transform="translate(-194.32533,-137.95958)"
+       fill="#3f3d56"
+       id="path6" />
+    <path
+       d="m 956.95445,761.57339 c -0.17386,0.13428 -0.35659,0.25486 -0.53222,0.38619 H 807.32908 c -2.92142,-11.83653 -3.953,-23.68571 0.4107,-33.97582 6.21716,-14.66282 24.61808,-23.81571 39.24692,-17.51888 a 22.3376,22.3376 0 0 1 8.77357,6.94176 c 5.71689,-10.23335 15.9718,-17.949 27.80872,-17.94055 14.82975,0.0106 27.15986,12.13812 31.18341,26.14659 6.47972,-10.937 19.27818,-18.58031 31.78747,-15.29233 20.92318,5.49929 27.53196,38.02404 10.41458,51.25304 z"
+       transform="translate(-194.32533,-137.95958)"
+       fill="#f2f2f2"
+       id="path7" />
+  </g>
+</svg>

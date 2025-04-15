@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="431.00003"
+   height="708.31702"
+   viewBox="0 0 431.00002 708.31704"
+   role="img"
+   artist="Katerina Limpitsouni"
+   source="https://undraw.co/"
+   version="1.1"
+   id="svg17"
+   sodipodi:docname="trees.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs17" />
+  <sodipodi:namedview
+     id="namedview17"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.66356845"
+     inkscape:cx="143.91884"
+     inkscape:cy="302.90771"
+     inkscape:window-width="1728"
+     inkscape:window-height="1051"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg17" />
+  <path
+     id="e16a8a0b-115e-4877-a9d6-27a72cf85b73-1754"
+     data-name="Path 482"
+     d="m 121.35723,708.13465 c 0,0 -12.753,-31.391 25.505,-54.934 z"
+     fill="#f0f0f0" />
+  <path
+     id="b0706b48-08e0-43ea-ab25-36cfaee90c12-1755"
+     data-name="Path 483"
+     d="m 105.67327,707.56361 c 0,0 -3.89,-22.374 -34.000002,-22.182 z"
+     fill="#f0f0f0" />
+  <circle
+     cx="110.8529"
+     cy="394.03052"
+     r="110.8529"
+     fill="#f0f0f0"
+     id="circle1" />
+  <polygon
+     points="571.145,708.317 559.572,708.317 565.358,394.03 565.663,394.03 "
+     fill="#f0f0f0"
+     id="polygon1"
+     transform="translate(-454.20075)" />
+  <circle
+     cx="348.85291"
+     cy="479.08542"
+     r="80.852898"
+     fill="#f0f0f0"
+     id="circle2" />
+  <polygon
+     points="807.496,708.317 799.055,708.317 803.276,479.085 803.498,479.085 "
+     fill="#f0f0f0"
+     id="polygon2"
+     transform="translate(-454.20075)" />
+  <circle
+     cx="247.02435"
+     cy="183.97568"
+     r="183.97568"
+     fill="#e4e4e4"
+     id="circle16" />
+  <path
+     d="M 382.86607,61.09437 A 183.99,183.99 0 0 1 76.308208,255.80884 183.99152,183.99152 0 1 0 382.86607,61.09437 Z"
+     opacity="0.1"
+     style="isolation:isolate"
+     id="path16" />
+  <polygon
+     points="691.116,705.577 710.323,705.577 700.72,183.975 700.214,183.975 "
+     fill="#e4e4e4"
+     id="polygon16"
+     transform="translate(-454.20075)" />
+</svg>
